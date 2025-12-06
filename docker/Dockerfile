@@ -30,3 +30,5 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
     ./setup.sh && \
     cd ~ && \
     rm -rf ~/pwndbg
+
+COPY --chown=ubuntu:ubuntu gdb-rosetta.sh /usr/local/bin/gdb-rosetta
