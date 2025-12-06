@@ -13,6 +13,7 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
     curl \
     gdb \
     git \
+    netcat-openbsd \
     python3 \
     sudo \
     unrar
