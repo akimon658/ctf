@@ -21,14 +21,6 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
 RUN echo ubuntu ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/ubuntu && \
     chmod 0440 /etc/sudoers.d/ubuntu
 
-USER ubuntu
-
-RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
-    --mount=type=cache,target=/var/lib/apt,sharing=locked \
-    git clone --depth=1 https://github.com/pwndbg/pwndbg.git ~/pwndbg && \
-    cd ~/pwndbg && \
-    ./setup.sh && \
-    cd ~ && \
-    rm -rf ~/pwndbg
-
 COPY --chown=ubuntu:ubuntu gdb-rosetta.sh /usr/local/bin/gdb-rosetta
+
+USER ubuntu
