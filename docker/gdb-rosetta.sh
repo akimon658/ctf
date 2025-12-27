@@ -8,6 +8,8 @@ fi
 
 prog=$1
 ROSETTA_DEBUGSERVER_PORT=1234 $prog < /dev/tty &
+pid=$!
+trap "kill $pid 2>/dev/null" EXIT
 
 gdb \
   -iex "file $prog" \
