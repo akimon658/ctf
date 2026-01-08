@@ -1,0 +1,13 @@
+import math
+from Crypto.Util.number import long_to_bytes
+
+n = 66579369096057840799275275806551056825754855027296356876541315429102104919401
+c = 23240514848563033397887056861198100244595942784363115352574337396646368790635
+p = math.isqrt(n)
+e = 65537
+phi = p * (p - 1)
+d = pow(e, -1, phi)
+m = pow(c, d, n)
+flag = long_to_bytes(m)
+
+print(flag)
